@@ -7,3 +7,7 @@ phases:
 
 artifacts:
   files: main
+
+cache:
+  paths:
+    - $GOPATH/pkg/mod
