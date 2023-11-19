@@ -1,0 +1,12 @@
+version: '3'
+
+services:
+  web:
+    image: golang:1.8
+    container_name: step-function-ci-cd
+    build: .
+    restart: always
+    volumes:
+      - ./app:/go/src/app
+    ports:
+      - "8080:8080"
