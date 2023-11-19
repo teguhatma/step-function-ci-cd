@@ -21,10 +21,16 @@ jobs:
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
 
+      - name: Meta
+        id: meta
+        run: echo "::set-output name=tags::${{ steps.build_and_push.outputs.tags }} ::set-output name=labels::${{ steps.build_and_push.outputs.labels }}"
+
       - name: Build and push
+        id: build_and_push
         uses: docker/build-push-action@v5
         with:
           context: .
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
+
