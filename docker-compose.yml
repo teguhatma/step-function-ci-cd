@@ -2,7 +2,7 @@ version: '3'
 
 services:
   web:
-    image: golang:1.8
+    image: golang:1.21.1
     container_name: step-function-ci-cd
     build: .
     restart: always
