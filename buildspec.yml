@@ -1,14 +1,9 @@
 version: 0.2
 
 phases:
-  pre_build:
-    commands:
-      - echo "Installing Docker..."
-      - apt-get update
-      - apt-get install -y docker.io
-      - echo "Docker installed."
-
   build:
     commands:
-      - docker build -t myapp .
-      - docker run myapp go build -o myapp
+      - go build -o main .
+
+artifacts:
+  files: main
